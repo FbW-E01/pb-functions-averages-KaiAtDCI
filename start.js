@@ -2,6 +2,15 @@
  * 1. Declare two functions: calculateGolfAverages and calculateTotalAverages
  */
 
+function calculateRoundAverages (scores) {
+  for (let round = 0; round < scores.length ; round++) {
+    let total = 0;
+    scores[round].forEach((strokes) => total += strokes);
+    const average = total / scores[round].length;
+    const averageRounded = Math.round(average * 100) / 100;
+    console.log(`The average score for round ${round + 1} is ${averageRounded}.`)
+  }
+}
 
 /**
  * 2. Implement calculateGolfAverages
@@ -15,6 +24,15 @@
  * "The average score for round 4 is 1.33"
 */
 
+function calculateGolfAverages() {
+  for (let round = 0; round < scores.length ; round++) {
+    let total = 0;
+    scores[round].forEach((strokes) => total += strokes);
+    const average = total / scores[round].length;
+    const averageRounded = Math.round(average * 100) / 100;
+    console.log(`The average score for round ${round + 1} is ${average}.`)
+  }
+}
 
 /**
  * 3. Implement calculateTotalAverages
@@ -27,6 +45,18 @@
  * An example of the expected output:
  * "The average of averages is 1.39"
  */
+
+function calculateTotalAverages(scores) {
+  let total = 0;
+  for (let round = 0; round < scores.length ; round++) {
+    for (let stroke = 0; stroke < scores[round].length ; stroke++) {
+      total += scores[round][stroke];
+    }
+  }
+  const average = total / (scores.length * scores[0].length);
+  const averageRounded = Math.round(average * 100) / 100;
+  console.log(`The average of averages is ${averageRounded}.`);
+}
 
 
 
